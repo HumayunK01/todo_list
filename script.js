@@ -2,29 +2,11 @@ const taskList = document.getElementById("taskList");
 const addTaskBtn = document.querySelector(".add-task-btn");
 const taskInput = document.querySelector(".task-input");
 
-const todos = {
-  // 'id1': {
-  //   name: 'Task A',
-  //   isDone: false
-  // },
-  // 'id2': {
-  //   name: 'Task B',
-  //   isDone: true
-  // },
-  // 'id3': {
-  //   name: 'Task C',
-  //   isDone: true
-  // }
-};
-
 let count = 1;
-
 function renderToDos() {
   let output = "";
 
   for (const todo in todos) {
-    // console.log(todos.todo) ❌
-    // console.log(todos[todo])
     output += `
           <li class="task ${todos[todo].isDone ? "done" : ""}"" id="${todo}">
             <label>${todos[todo].name}</label>
@@ -32,7 +14,6 @@ function renderToDos() {
           </li>
         `;
   }
-
   taskList.innerHTML = output;
 }
 
@@ -49,6 +30,7 @@ addTaskBtn.addEventListener("click", function () {
 
   count++;
 });
+
 taskList.addEventListener("click", function (e) {
   let nodeName = e.target.nodeName;
   let id = e.target.id;
@@ -61,20 +43,3 @@ taskList.addEventListener("click", function (e) {
   }
   renderToDos();
 });
-
-// todos.id1.name
-// todos['id1'].name
-
-// todos.todo
-
-// var stds = [
-//   {
-//     name: 'Akash',
-//     marks: 80
-//   },
-//   {
-//     name: 'Bhim',
-//     marks: 90
-//   }
-// ]
-// stds[0].name
